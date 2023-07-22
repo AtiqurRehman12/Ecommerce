@@ -1,0 +1,5 @@
+@include('frontend.layouts.header')
+@include('frontend.layouts.topbar')
+@include('frontend.layouts.navbarSec')
+@yield('main-section')
+@include('frontend.layouts.footer')

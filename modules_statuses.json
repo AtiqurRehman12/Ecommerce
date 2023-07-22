@@ -1,0 +1,13 @@
+{
+    "Article": true,
+    "Tag": true,
+    "Comment": true,
+    "Type": true,
+    "Types": true,
+    "Product": true,
+    "Slide": true,
+    "ProductImage": true,
+    "Orders": true,
+    "Order": true,
+    "Store": true
+}
