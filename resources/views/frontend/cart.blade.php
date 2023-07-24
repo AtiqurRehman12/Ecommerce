@@ -1,6 +1,6 @@
 @extends('frontend.layouts.secondary')
 @section('icon')
-    {{asset('img/cart.webp')}}
+    {{ asset('img/cart.webp') }}
 @endsection
 @section('title')
     Cart
@@ -22,11 +22,11 @@
                     <tbody class="align-middle">
                         @forelse ($products as $product)
                             @php
-                            if(auth()->check()){
-                                $count = $product->quantity;
-                            }else{
-                                $count = $productIdCounts[$product->id] ?? 0;
-                            }
+                                if (auth()->check()) {
+                                    $count = $product->quantity;
+                                } else {
+                                    $count = $productIdCounts[$product->id] ?? 0;
+                                }
                             @endphp
                             <tr class="parent-tr">
                                 <td class="float-left"><img src="{{ $product->image }}" alt="" style="width: 50px;">
@@ -84,7 +84,8 @@
                             <h5 class="font-weight-bold">Total</h5>
                             <h5 class="font-weight-bold total-bill"></h5>
                         </div>
-                        <a href="{{route('frontend.checkout')}}" class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</a>
+                        <a href="{{ route('frontend.checkout') }}" class="btn btn-block btn-primary my-3 py-3">Proceed To
+                            Checkout</a>
                     </div>
                 </div>
             </div>
@@ -116,12 +117,11 @@
                     url: "{{ route('frontend.cart.ajax') }}",
                     type: 'GET',
                     data: {
-                        productId: productId
+                        productId: productId,
                     },
                     success: function(response) {
                         var count = response.count;
                         var productCount = response.productCount;
-                        console.log(productCount);
                         $('.cart-badge').empty().prepend(count);
 
                     }

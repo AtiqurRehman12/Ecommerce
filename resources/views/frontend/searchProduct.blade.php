@@ -19,6 +19,7 @@
                             </h6>
                         </div>
                     </div>
+                    @if ($product->quantity > 0)
                     <div class="card-footer d-flex justify-content-between bg-light border">
                         <a href="{{ route('frontend.product', $product->id) }}"
                             class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
@@ -26,6 +27,12 @@
                             class="btn btn-sm text-dark p-0 cart"><i
                                 class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
                     </div>
+                        
+                    @else
+                       <div class="card-footer bg-light border text-danger text-center">
+                        <span class="text-danger" >Out of stock !</span>
+                        </div> 
+                    @endif
                 </div>
             </div>
         @empty

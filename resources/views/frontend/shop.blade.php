@@ -30,15 +30,15 @@
                     </div>
                     <div>
                         <input type="radio" name="price" id="low-price">
-                        <label for="low-price" class="lato">Less than $90</label>
+                        <label for="low-price" class="lato">Less than $100</label>
                     </div>
                     <div>
                         <input type="radio" name="price" id="mid-price">
-                        <label for="mid-price" class="lato">$91 to $110</label>
+                        <label for="mid-price" class="lato">$100 to $250</label>
                     </div>
                     <div>
                         <input type="radio" name="price" id="high-price">
-                        <label for="high-price" class="lato">$110 to $199</label>
+                        <label for="high-price" class="lato">More than $250</label>
                     </div>
                 </div>
 
@@ -65,6 +65,7 @@
                                         <h6>${{ $product->price }}.00</h6>
                                     </div>
                                 </div>
+                                @if ($product->quantity >0)
                                 <div class="card-footer d-flex justify-content-between bg-light border">
                                     <a href="{{ route('frontend.product', $product->id) }}"
                                         class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
@@ -72,6 +73,12 @@
                                     <a href="" class="btn btn-sm text-dark p-0 cart" data-id="{{ $product->id }}"><i
                                             class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                                 </div>
+                                    
+                                @else
+                                    <div class="card-footer text-danger text-center bg-light border">
+                                        <span class="text-danger" >Out of stock !</span>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @empty
@@ -97,22 +104,22 @@
             $("#low-price").click(function() {
                 productContainer.empty().append(allProducts);
                 var products = $(".main-box").filter(function() {
-                    return $(this).data("price") < 90;
+                    return $(this).data("price") < 100;
                 });
                 productContainer.empty().append(products);
             })
             $("#mid-price").click(function() {
                 productContainer.empty().append(allProducts);
                 var products = $(".main-box").filter(function() {
-                    return $(this).data("price") > 90 && $(this).data("price") < 110;
+                    return $(this).data("price") > 100 && $(this).data("price") < 250;
                 })
                 productContainer.empty().append(products);
 
             })
             $("#high-price").click(function() {
                 productContainer.empty().append(allProducts);
-                var products = $(".product-box").filter(function() {
-                    return $(this).data("price") > 110 && $(this).data("price") < 199;
+                var products = $(".main-box").filter(function() {
+                    return $(this).data("price") > 250;
                 })
                 productContainer.empty().append(products);
             })

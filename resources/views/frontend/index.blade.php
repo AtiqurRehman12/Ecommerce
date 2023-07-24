@@ -72,7 +72,7 @@
                         </div>
                             
                         @else
-                            <div class="h4 text-center card-footer bg-light border text-danger">Out of Stock!</div>
+                            <div class="h4 text-center card-footer bg-light border text-danger"><span class="text-danger" >Out of stock !</span></div>
                         @endif
                     </div>
                 </div>
