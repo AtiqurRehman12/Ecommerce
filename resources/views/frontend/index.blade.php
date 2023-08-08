@@ -2,6 +2,9 @@
 @section('title')
     Home
 @endsection
+@section('icon')
+https://w7.pngwing.com/pngs/992/534/png-transparent-white-2-storey-house-illustration-housing-house-home-icon-house-angle-building-houses-thumbnail.png
+@endsection
 @section('main-section')
     <div class="container-fluid pt-5">
         <div class="row px-xl-5 pb-3">
@@ -26,7 +29,7 @@
             @endforelse
         </div>
     </div>
-    <div class="container-fluid bg-secondary my-5">
+    {{-- <div class="container-fluid bg-secondary my-5">
         <div class="row justify-content-md-center py-5 px-xl-5">
             <div class="col-md-6 col-12 py-5">
                 <div class="text-center mb-2 pb-2">
@@ -43,7 +46,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="container-fluid pt-5">
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>

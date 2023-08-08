@@ -31,8 +31,12 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{route('frontend.index')}}" class="nav-item nav-link active">Home</a>
+                        <a href="{{route('frontend.products')}}" class="nav-item nav-link active">Products</a>
+                        <a href="{{route('frontend.contact')}}" class="nav-item nav-link active">Contact Us</a>
                     </div>
                     @if (auth()->check())
+                    <span class="mr-4" >Hello! <span class="font-weight-bold" > {{auth()->user()->name}}</span></span>
+
                         <form action="{{route('logout')}}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-outline-primary">Logout</button>
@@ -54,7 +58,7 @@
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
                                 <h1 class="text-white font-weight-semi-bold mb-4">{{ $slide->slide_text }}</h1>
-                                <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                <a href="{{route('frontend.products')}}" class="btn btn-light py-2 px-3">Shop Now</a>
                             </div>
                         </div>
                     </div>

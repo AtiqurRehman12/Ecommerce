@@ -24,7 +24,7 @@ class GenerateMenus
         \Menu::make('admin_sidebar', function ($menu) {
 
             // Stores
-            $menu->add('<i class="nav-icon fas fa-shopping-cart"></i> '.__('Stores'), [
+            $menu->add('<i class="nav-icon fas fa-shopping-cart"></i> '.__('Store'), [
                 'route' => 'backend.stores.index',
                 'class' => 'nav-item',
             ])

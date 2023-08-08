@@ -9,5 +9,6 @@
     "ProductImage": true,
     "Orders": true,
     "Order": true,
-    "Store": true
+    "Store": true,
+    "OrderedProduct": true
 }

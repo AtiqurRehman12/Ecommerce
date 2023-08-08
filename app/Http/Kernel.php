@@ -50,6 +50,7 @@ class Kernel extends HttpKernel
 
     protected $routeMiddleware = [
         'verify.email' => \App\Http\Middleware\VerifyEmailMiddleware::class,
+        'verify.id' => \App\Http\Middleware\VerifyUserId::class,
     ];
 
     /**

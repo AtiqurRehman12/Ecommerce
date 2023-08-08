@@ -43,27 +43,27 @@ class GenerateMenus
             //     ]);
 
             // Separator: Access Management
-            $menu->add('Management', [
-                'class' => 'nav-title',
-            ])
-                ->data([
-                    'order' => 101,
-                    'permission' => ['edit_settings', 'view_backups', 'view_users', 'view_roles', 'view_logs'],
-                ]);
+            // $menu->add('Management', [
+            //     'class' => 'nav-title',
+            // ])
+            //     ->data([
+            //         'order' => 101,
+            //         'permission' => ['edit_settings', 'view_backups', 'view_users', 'view_roles', 'view_logs'],
+            //     ]);
 
-            // Settings
-            $menu->add('<i class="nav-icon fas fa-cogs"></i> Settings', [
-                'route' => 'backend.settings',
-                'class' => 'nav-item',
-            ])
-                ->data([
-                    'order' => 102,
-                    'activematches' => 'admin/settings*',
-                    'permission' => ['edit_settings'],
-                ])
-                ->link->attr([
-                    'class' => 'nav-link',
-                ]);
+            // // Settings
+            // $menu->add('<i class="nav-icon fas fa-cogs"></i> Settings', [
+            //     'route' => 'backend.settings',
+            //     'class' => 'nav-item',
+            // ])
+            //     ->data([
+            //         'order' => 102,
+            //         'activematches' => 'admin/settings*',
+            //         'permission' => ['edit_settings'],
+            //     ])
+            //     ->link->attr([
+            //         'class' => 'nav-link',
+            //     ]);
 
             // Backup
             // $menu->add('<i class="nav-icon fas fa-archive"></i> Backups', [
@@ -80,49 +80,49 @@ class GenerateMenus
             //     ]);
 
             // Access Control Dropdown
-            $accessControl = $menu->add('<i class="nav-icon fa-solid fa-user-gear"></i> Access Control', [
-                'class' => 'nav-group',
-            ])
-                ->data([
-                    'order' => 104,
-                    'activematches' => [
-                        'admin/users*',
-                        'admin/roles*',
-                    ],
-                    'permission' => ['view_users', 'view_roles'],
-                ]);
-            $accessControl->link->attr([
-                'class' => 'nav-link nav-group-toggle',
-                'href' => '#',
-            ]);
+            // $accessControl = $menu->add('<i class="nav-icon fa-solid fa-user-gear"></i> Access Control', [
+            //     'class' => 'nav-group',
+            // ])
+            //     ->data([
+            //         'order' => 104,
+            //         'activematches' => [
+            //             'admin/users*',
+            //             'admin/roles*',
+            //         ],
+            //         'permission' => ['view_users', 'view_roles'],
+            //     ]);
+            // $accessControl->link->attr([
+            //     'class' => 'nav-link nav-group-toggle',
+            //     'href' => '#',
+            // ]);
 
             // Submenu: Users
-            $accessControl->add('<i class="nav-icon fa-solid fa-user-group"></i> Users', [
-                'route' => 'backend.users.index',
-                'class' => 'nav-item',
-            ])
-                ->data([
-                    'order' => 105,
-                    'activematches' => 'admin/users*',
-                    'permission' => ['view_users'],
-                ])
-                ->link->attr([
-                    'class' => 'nav-link',
-                ]);
+            // $accessControl->add('<i class="nav-icon fa-solid fa-user-group"></i> Users', [
+            //     'route' => 'backend.users.index',
+            //     'class' => 'nav-item',
+            // ])
+            //     ->data([
+            //         'order' => 105,
+            //         'activematches' => 'admin/users*',
+            //         'permission' => ['view_users'],
+            //     ])
+            //     ->link->attr([
+            //         'class' => 'nav-link',
+            //     ]);
 
-            // Submenu: Roles
-            $accessControl->add('<i class="nav-icon fa-solid fa-user-shield"></i> Roles', [
-                'route' => 'backend.roles.index',
-                'class' => 'nav-item',
-            ])
-                ->data([
-                    'order' => 106,
-                    'activematches' => 'admin/roles*',
-                    'permission' => ['view_roles'],
-                ])
-                ->link->attr([
-                    'class' => 'nav-link',
-                ]);
+            // // Submenu: Roles
+            // $accessControl->add('<i class="nav-icon fa-solid fa-user-shield"></i> Roles', [
+            //     'route' => 'backend.roles.index',
+            //     'class' => 'nav-item',
+            // ])
+            //     ->data([
+            //         'order' => 106,
+            //         'activematches' => 'admin/roles*',
+            //         'permission' => ['view_roles'],
+            //     ])
+            //     ->link->attr([
+            //         'class' => 'nav-link',
+            //     ]);
 
             // Log Viewer
             // Log Viewer Dropdown

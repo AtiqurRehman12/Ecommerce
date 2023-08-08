@@ -2,6 +2,9 @@
 @section('title')
     {{ $categoryName }}
 @endsection
+@section('icon')
+    {{$categoryIcon}}
+@endsection
 @section('main-section')
     <div class="container-fluid pt-5">
         <div class="row px-xl-5">

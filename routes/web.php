@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ Route::get('dashboard', 'App\Http\Controllers\Frontend\FrontendController@index'
 */
 Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.'], function () {
     Route::get('/', 'FrontendController@index')->name('index');
+    Route::get('/proudcts', 'FrontendController@products')->name('products');
+    Route::get('/contact-us', 'FrontendController@contactUs')->name('contact');
     Route::get('/shop/{id}', 'FrontendController@shop')->name('shop');
     Route::get('/product/{id}', 'FrontendController@product')->name('product');
     Route::post('/product/search', 'FrontendController@productSearch')->name('search.products');
@@ -40,6 +43,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
     Route::get('/cart/ajax/minus', 'FrontendController@cartAjaxMinus')->name('cart.ajax.minus');
     Route::get('/cart/ajax/cancel', 'FrontendController@cartAjaxCancel')->name('cart.ajax.cancel');
     Route::get('/cart/checkout', 'FrontendController@checkout')->name('checkout');
+    Route::get('/yours-order/{id}', 'FrontendController@userOrders')->name('user.orders')->middleware('verify.id');
 
     Route::group(['middleware' => ['auth']], function () {
         /*
@@ -154,3 +158,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
     Route::patch("$module_name/{id}/unblock", ['as' => "$module_name.unblock", 'uses' => "$controller_name@unblock", 'middleware' => ['permission:block_users']]);
 });
 
+Route::name('stripe.')
+    ->controller(PaymentController::class)
+    ->prefix('stripe')
+    ->group(function () {
+        Route::get('payment', 'index')->name('index');
+        Route::post('payment', 'store')->name('store');
+    });
+    

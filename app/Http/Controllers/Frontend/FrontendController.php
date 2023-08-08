@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\OrderedProducts;
 use App\Models\UserCart;
+use Modules\Order\Models\Order;
 use Modules\Product\Models\Product;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request as HttpRequest;
@@ -34,6 +36,13 @@ class FrontendController extends Controller
             ->get();
         return view('frontend.index', compact('categories', 'latestProducts'));
     }
+    public function contactUs(){
+        return view('frontend.contactUs');
+    }
+    public function products(){
+        $products = DB::table('products')->paginate(20);;
+        return view('frontend.products', compact('products'));
+    }
 
     /**
      * Privacy Policy Page.
@@ -43,8 +52,9 @@ class FrontendController extends Controller
     public function shop($id)
     {
         $categoryName = DB::table('category')->where('id', $id)->pluck('name')->first();
+        $categoryIcon = DB::table('category')->where('id', $id)->pluck('image')->first();
         $products = DB::table('products')->where('category_id', $id)->paginate(12);
-        return view('frontend.shop', compact('products', 'categoryName'));
+        return view('frontend.shop', compact('products', 'categoryName', 'categoryIcon'));
     }
     public function product($id)
     {
@@ -308,5 +318,13 @@ class FrontendController extends Controller
                 return response()->json(['count' => $cartCount]);
             }
         }
+    }
+    public function userOrders($id){
+       $orderedProducts =  Order::where('user_id', $id)->get();
+       if($orderedProducts){
+        return view('frontend.userOrders', compact('orderedProducts'));
+       }else{
+        return redirect()->back();
+       }
     }
 }

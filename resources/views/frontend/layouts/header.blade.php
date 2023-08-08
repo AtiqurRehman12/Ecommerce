@@ -21,7 +21,7 @@
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('frontend/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-
+    @stack('after-styles')
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
 </head>

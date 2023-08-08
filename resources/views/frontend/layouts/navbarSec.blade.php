@@ -31,8 +31,13 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{ route('frontend.index') }}" class="nav-item nav-link active">Home</a>
+                        <a href="{{route('frontend.products')}}" class="nav-item nav-link active">Products</a>
+                        <a href="{{route('frontend.contact')}}" class="nav-item nav-link active">Contact Us</a>
+
                     </div>
                     @if (auth()->check())
+                    <span class="mr-4" >Hello! <span class="font-weight-bold badge badge-primary rounded" > {{auth()->user()->name}}</span></span>
+
                         <form action="{{route('logout')}}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-outline-primary">Logout</button>

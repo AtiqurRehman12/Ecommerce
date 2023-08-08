@@ -22,10 +22,9 @@
     <tbody>
         @foreach ($all_columns as $column)
             @php
-                if ($column->Field === 'more_images' || $column->Field === 'created_by' || $column->Field === 'deleted_by' || $column->Field === 'updated_by') {
+                if ($column->Field === 'more_images' || $column->Field === 'created_by' || $column->Field === 'deleted_by' || $column->Field === 'updated_by' || $column->Field === 'deleted_at' || $column->Field === 'user_id' ) {
                     continue;
                 }
-                
             @endphp
             <tr>
                 <td>
